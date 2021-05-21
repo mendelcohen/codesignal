@@ -27,9 +27,9 @@ function centuryFromYear(year) {
 function checkPalindrome(inputString) {
   return inputString === inputString.split("").reverse().join("") ? true : false;
 }
-console.log(checkPalindrome("aabaa"));
-console.log(checkPalindrome("abaac"));
-console.log(checkPalindrome("a"));
+// console.log(checkPalindrome("aabaa"));
+// console.log(checkPalindrome("abaac"));
+// console.log(checkPalindrome("a"));
 
 function adjacentElementsProduct(inputArray) {
   var largestProduct = inputArray[0] * inputArray[1];
@@ -43,7 +43,7 @@ function adjacentElementsProduct(inputArray) {
   }
   return largestProduct;
 }
-console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
+// console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
 
 function shapeArea(n) {
   var sum = 1;
@@ -54,4 +54,12 @@ function shapeArea(n) {
   }
   return sum;
 }
-console.log(shapeArea(7));
+// console.log(shapeArea(7));
+
+function makeArrayConsecutive2(statues) {
+  var statues1 = statues.length - 2;
+  var numStatues = Math.max(...statues) - (Math.min(...statues) + 1);
+  var amountStatues = numStatues - statues1;
+  return amountStatues;
+}
+console.log(makeArrayConsecutive2([6, 2, 3, 8]));
