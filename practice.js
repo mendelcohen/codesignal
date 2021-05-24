@@ -62,4 +62,44 @@ function makeArrayConsecutive2(statues) {
   var amountStatues = numStatues - statues1;
   return amountStatues;
 }
-console.log(makeArrayConsecutive2([6, 2, 3, 8]));
+// console.log(makeArrayConsecutive2([6, 2, 3, 8]));
+
+
+
+function almostIncreasingSequence(seq) {
+  var bad = 0;
+  for (var i=1;i<seq.length;i++) {
+    if (seq[i] <= seq[i-1]) {
+      bad++;
+    } if(bad>1) {
+      return false;
+    } if(seq[i]<=seq[i-2]&&seq[i+1]<=seq[i-1]) {
+      console.log(seq[i+1]);
+      return false;
+    }
+  }
+  return true;
+}
+// console.log(almostIncreasingSequence([1, 3, 2, 1]));
+// console.log(almostIncreasingSequence([1, 2, 1, 2]));
+// console.log(almostIncreasingSequence([1, 2, 5, 3, 5]));
+
+
+
+function matrixElementsSum(matrix) {
+  var free = [];
+  var sum = 0;
+  for (var row = 0; row < matrix.length; row++) {
+    for (var col = 0; col < matrix[row].length; col++) {
+      if (matrix[row][col] === 0) {
+        free.push(col);
+      } else if (!free.includes(col)) {
+        sum += matrix[row][col];
+      }
+    }
+  }    
+  return sum;
+}
+console.log(matrixElementsSum([[1, 1, 1, 0], 
+  [0, 5, 0, 1], 
+  [2, 1, 3, 10]]));
