@@ -106,19 +106,37 @@ function matrixElementsSum(matrix) {
 
 
 
-function allLongestStrings(inputArray) {
-  var longestStrings = [];
-  var length = inputArray[0].length;
-  for (var str = 1; str < inputArray.length; str++) {
-    if (inputArray[str].length >= length) {
-      length = inputArray[str].length;
-    }
+// function allLongestStrings(inputArray) {
+//   var longestStrings = [];
+//   var length = inputArray[0].length;
+//   for (var str = 1; str < inputArray.length; str++) {
+//     if (inputArray[str].length >= length) {
+//       length = inputArray[str].length;
+//     }
+//   }
+//   inputArray.forEach(str => {
+//     if (str.length === length) {
+//       longestStrings.push(str);
+//     }
+//   });
+//   return longestStrings;
+// }  
+// console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
+
+
+function commonCharacterCount(s1, s2) {
+  var commonCharacters = 0;
+  var array1 = s1.split("");
+  var array2 = s2.split("");
+  for (var char1 = 0; char1 < array1.length; char1++) {
+      for (var char2 = 0; char2 < array2.length; char2++) {
+          if (array1[char1] === array2[char2]) {
+              commonCharacters++;
+              array2.splice(char2, 1);
+              break;
+          }
+      }
   }
-  inputArray.forEach(str => {
-    if (str.length === length) {
-      longestStrings.push(str);
-    }
-  });
-  return longestStrings;
-}  
-console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
+  return commonCharacters;
+}
+// console.log(commonCharacterCount("aabcc", "adcaa"));
