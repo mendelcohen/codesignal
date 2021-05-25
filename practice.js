@@ -100,6 +100,25 @@ function matrixElementsSum(matrix) {
   }    
   return sum;
 }
-console.log(matrixElementsSum([[1, 1, 1, 0], 
-  [0, 5, 0, 1], 
-  [2, 1, 3, 10]]));
+// console.log(matrixElementsSum([[1, 1, 1, 0], 
+//   [0, 5, 0, 1], 
+//   [2, 1, 3, 10]]));
+
+
+
+function allLongestStrings(inputArray) {
+  var longestStrings = [];
+  var length = inputArray[0].length;
+  for (var str = 1; str < inputArray.length; str++) {
+    if (inputArray[str].length >= length) {
+      length = inputArray[str].length;
+    }
+  }
+  inputArray.forEach(str => {
+    if (str.length === length) {
+      longestStrings.push(str);
+    }
+  });
+  return longestStrings;
+}  
+console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
