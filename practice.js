@@ -140,3 +140,51 @@ function commonCharacterCount(s1, s2) {
   return commonCharacters;
 }
 // console.log(commonCharacterCount("aabcc", "adcaa"));
+
+function isLucky(n) {
+  var numbersArray = n.toString().split("");
+  var halfDigits = numbersArray.length / 2;
+  var firstSum = 0;
+  var secondSum = 0;
+  var index = 0;
+  while (index < halfDigits) {
+    firstSum += parseInt(numbersArray[index]);
+    secondSum += parseInt(numbersArray[index + halfDigits]);
+    index++;
+  }
+  return firstSum === secondSum ? true : false;
+}
+// console.log(isLucky(1230));
+
+
+
+function sortByHeight(a) {
+  var s = a.filter(h => h > 0).sort((a, b) => a - b);
+  console.log(s);
+  return a.map(p => {
+    if (p !== -1) {
+      return s.shift();
+    } else if (p === -1) {
+      return -1;
+    }
+  });
+}
+// console.log(sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]));
+
+function reverseInParentheses(inputString) {
+  var string = "";
+  var i = 0;
+  while (i < inputString.length) {
+    if (inputString[i] === "(") {
+      var openPar = i;
+    } else if (inputString[i] === ")") {
+      var closePar = i;
+    }
+    i++;
+  }
+  var stringInPar = inputString.substr(openPar + 1, closePar - (openPar + 1))
+  var newStringInPar = stringInPar.split("").reverse().join("");
+  string = inputString.replace(stringInPar, newStringInPar);
+  return string;
+}  
+console.log(reverseInParentheses("(bar)"));            
