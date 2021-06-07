@@ -171,20 +171,57 @@ function sortByHeight(a) {
 }
 // console.log(sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]));
 
+// function reverseInParentheses(inputString) {
+//   var string = "";
+//   var i = 0;
+//   while (i < inputString.length) {
+//     if (inputString[i] === "(") {
+//       var openPar = i;
+//     } else if (inputString[i] === ")") {
+//       var closePar = i;
+//     }
+//     i++;
+//   }
+//   var stringInPar = inputString.substr(openPar + 1, closePar - (openPar + 1))
+//   var newStringInPar = stringInPar.split("").reverse().join("");
+//   string = inputString.replace(stringInPar, newStringInPar);
+//   return string;
+// }  
+// console.log(reverseInParentheses("(bar)"));     
+
+
+
+// function reverseInParentheses(inputString) {
+//   while (inputString.includes('(')) {
+//     inputString = inputString.replace(/\(([^()]*)\)/, (_, str) => [...str].reverse().join(''));
+//   }
+//   return inputString;
+// }
+// console.log(reverseInParentheses("foo(bar)baz(blim)"));
+// console.log(reverseInParentheses("foo(bar(baz))blim"));
+
+
 function reverseInParentheses(inputString) {
-  var string = "";
-  var i = 0;
-  while (i < inputString.length) {
-    if (inputString[i] === "(") {
-      var openPar = i;
-    } else if (inputString[i] === ")") {
-      var closePar = i;
-    }
-    i++;
+  while (inputString.includes('(')) {
+    inputString = inputString.replace(/\(([^()]*)\)/, (_, str) => [...str]);
   }
-  var stringInPar = inputString.substr(openPar + 1, closePar - (openPar + 1))
-  var newStringInPar = stringInPar.split("").reverse().join("");
-  string = inputString.replace(stringInPar, newStringInPar);
-  return string;
-}  
-console.log(reverseInParentheses("(bar)"));            
+  return inputString;
+}
+// console.log(reverseInParentheses("foo(bar)baz(blim)"));
+// console.log(reverseInParentheses("foo(bar(baz))blim"));
+
+function alternatingSums(a) {
+  var weightsTeamOne = 0;
+  var weightsTeamTwo = 0;
+  for (var i = 0; i < a.length; i += 2) {
+    weightsTeamOne += a[i];
+    if (i + 1 < a.length) {
+      weightsTeamTwo += a[i + 1];
+    }
+  }
+  var weightsTotals = [];
+  weightsTotals.push(weightsTeamOne);
+  weightsTotals.push(weightsTeamTwo);
+  return weightsTotals;
+}
+console.log(alternatingSums([50, 60, 60, 45, 70]));
