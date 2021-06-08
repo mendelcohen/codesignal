@@ -236,4 +236,34 @@ function addBorder(picture) {
   picture.push("*".repeat(picture[0].length));
   return picture;
 }
-console.log(addBorder(["abc", "ded"]));
+// console.log(addBorder(["abc", "ded"]));
+
+
+var array1 = [4,8,10,9];
+var array2 = [4,8,9,10];
+
+var isSame = (array1.length === array2.length) && array1.every(function(element, index) {
+  return element === array2[index]; 
+});
+
+// console.log(isSame);
+
+
+function areSimilar(a, b) {
+  var c = a.map(a => a);
+  var d = b.map(a => a);
+  if (c.sort().join("") === d.sort().join("")) {
+    var sumNotEqual = 0;
+    for (var twoArrays = 0; twoArrays < a.length; twoArrays++) {
+      if (a[twoArrays] !== b[twoArrays]) {
+        sumNotEqual++;
+        console.log(sumNotEqual);
+      } 
+    }
+    console.log(sumNotEqual);
+    return sumNotEqual < 3 ? true : false;
+  }
+  return false;
+}
+console.log(areSimilar([4, 6, 3], [3, 4, 6]));
+
