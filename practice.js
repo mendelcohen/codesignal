@@ -224,4 +224,16 @@ function alternatingSums(a) {
   weightsTotals.push(weightsTeamTwo);
   return weightsTotals;
 }
-console.log(alternatingSums([50, 60, 60, 45, 70]));
+// console.log(alternatingSums([50, 60, 60, 45, 70]));
+
+
+
+function addBorder(picture) {
+  for (var string = 0; string < picture.length; string++) {
+    picture[string] = `*${picture[string]}*`;
+  }
+  picture.unshift("*".repeat(picture[0].length));
+  picture.push("*".repeat(picture[0].length));
+  return picture;
+}
+console.log(addBorder(["abc", "ded"]));
