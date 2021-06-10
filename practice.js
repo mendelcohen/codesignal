@@ -265,5 +265,19 @@ function areSimilar(a, b) {
   }
   return false;
 }
-console.log(areSimilar([4, 6, 3], [3, 4, 6]));
+// console.log(areSimilar([4, 6, 3], [3, 4, 6]));
 
+
+
+function arrayChange(inputArray) {
+  var count = 0;
+  for (var index = 1; index < inputArray.length; index++) {
+    if (inputArray[index] <= inputArray[index - 1]) {
+      var increments = (inputArray[index - 1] - inputArray[index]) + 1;
+      count += increments;
+      inputArray[index] = inputArray[index - 1] + 1;
+    }
+  }
+  return count; 
+}
+console.log(arrayChange([1, 1, 1]));
