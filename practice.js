@@ -280,4 +280,26 @@ function arrayChange(inputArray) {
   }
   return count; 
 }
-console.log(arrayChange([1, 1, 1]));
+// console.log(arrayChange([1, 6, 2, 9, 1]));
+
+
+
+function palindromeRearranging(inputString) {
+  var letterCounts = {};
+  for (var index = 0; index < inputString.length; index++) {
+    if (letterCounts[inputString[index]]) {
+      letterCounts[inputString[index]]++;
+    } else {
+      letterCounts[inputString[index]] = 1;
+    }
+  }
+  var odds = 0;
+  for (const property in letterCounts) {
+    if (letterCounts[property] % 2 !== 0) {
+      odds++;
+    }
+  }
+  return odds < 2 ? true : false;
+}
+console.log(palindromeRearranging("aabbc"));
+console.log(palindromeRearranging("aabb"));
