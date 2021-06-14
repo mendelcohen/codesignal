@@ -301,5 +301,23 @@ function palindromeRearranging(inputString) {
   }
   return odds < 2 ? true : false;
 }
-console.log(palindromeRearranging("aabbc"));
-console.log(palindromeRearranging("aabb"));
+// console.log(palindromeRearranging("aabbc"));
+// console.log(palindromeRearranging("aabb"));
+
+
+
+function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
+  var yourArray = [];
+  var friendsArray = [];
+  yourArray.push(yourLeft);
+  yourArray.push(yourRight);
+  friendsArray.push(friendsLeft);
+  friendsArray.push(friendsRight);
+  yourArray.sort();
+  console.log(yourArray);
+  friendsArray.sort();
+  console.log(friendsArray);
+  return yourArray[0] === friendsArray[0] && yourArray[1] === friendsArray[1] ? true : false;
+}
+console.log(areEquallyStrong(10, 15, 15, 10));
+console.log(areEquallyStrong(20, 15, 15, 10));
