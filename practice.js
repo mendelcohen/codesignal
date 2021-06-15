@@ -361,3 +361,24 @@ function isIPv4Address(inputString) {
   return validNum === 4 ? true : false;
 }
 // console.log(isIPv4Address("0.254aa.255.0"));
+
+
+
+function avoidObstacles(inputArray) {
+  var numbers = inputArray.sort();
+  var n = 2;
+  var num = 0;
+  while (num < numbers.length) {
+    if (numbers[num] % n === 0) {
+      n++;
+      num = 0;
+    } else {
+      num++;
+    }
+  }
+  return n;
+}
+// console.log(avoidObstacles([999, 1000]));
+
+
+
