@@ -338,3 +338,26 @@ function arrayMaximalAdjacentDifference(inputArray) {
   return greatestDifference;
 }
 // console.log(arrayMaximalAdjacentDifference([2, 4, 1, 0]));
+
+
+// var address = "172.16.254.1";
+// console.log(address.split("."));
+
+// console.log(parseInt("02"));
+
+function isIPv4Address(inputString) {
+  var addressParts = inputString.split(".");
+  var validNum = 0;
+  
+  if (addressParts.length === 4) {
+    for (var part = 0; part < addressParts.length; part++) {
+      if (addressParts[part].length > 1 && addressParts[part][0] === "0") {
+        return false;
+      } else if (!isNaN(addressParts[part]) && parseInt(addressParts[part]) >= 0 && parseInt(addressParts[part]) < 256) {
+        validNum++;
+      }
+    }
+  }
+  return validNum === 4 ? true : false;
+}
+// console.log(isIPv4Address("0.254aa.255.0"));
