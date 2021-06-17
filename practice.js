@@ -382,3 +382,32 @@ function avoidObstacles(inputArray) {
 
 
 
+function boxBlur(image) {
+  var blurArray = [];
+  var index1 = 0;
+  var index2 = 0;
+  while (image.length - index1 >= 3) {
+    var pixel = [];
+    index2 = 0;
+    while (image[0].length - index2 >= 3) { 
+      var sumTotal = 0;
+      for (var i = index1; i < index1 + 3; i++) {
+        for (var j = index2; j < index2 + 3; j++) {
+          sumTotal += image[i][j];
+        }
+      }
+      sumTotal = Math.floor(sumTotal / 9);
+      pixel.push(sumTotal);
+      index2++;
+    }
+    blurArray.push(pixel);
+    index1++;
+  }
+  return blurArray;
+}
+// console.log(boxBlur([
+//   [7, 4, 0, 1], 
+//   [5, 6, 2, 2], 
+//   [6, 10, 7, 8], 
+//   [1, 4, 2, 0]]
+// ));
