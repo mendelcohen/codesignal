@@ -68,13 +68,13 @@ function makeArrayConsecutive2(statues) {
 
 function almostIncreasingSequence(seq) {
   var bad = 0;
-  for (var i=1;i<seq.length;i++) {
-    if (seq[i] <= seq[i-1]) {
+  for (var i = 1; i < seq.length; i++) {
+    if (seq[i] <= seq[i - 1]) {
       bad++;
-    } if(bad>1) {
+    } if (bad > 1) {
       return false;
-    } if(seq[i]<=seq[i-2]&&seq[i+1]<=seq[i-1]) {
-      console.log(seq[i+1]);
+    } if (seq[i] <= seq[i - 2] && seq[i + 1] <= seq[i - 1]) {
+      console.log(seq[i + 1]);
       return false;
     }
   }
@@ -97,7 +97,7 @@ function matrixElementsSum(matrix) {
         sum += matrix[row][col];
       }
     }
-  }    
+  }
   return sum;
 }
 // console.log(matrixElementsSum([[1, 1, 1, 0], 
@@ -129,13 +129,13 @@ function commonCharacterCount(s1, s2) {
   var array1 = s1.split("");
   var array2 = s2.split("");
   for (var char1 = 0; char1 < array1.length; char1++) {
-      for (var char2 = 0; char2 < array2.length; char2++) {
-          if (array1[char1] === array2[char2]) {
-              commonCharacters++;
-              array2.splice(char2, 1);
-              break;
-          }
+    for (var char2 = 0; char2 < array2.length; char2++) {
+      if (array1[char1] === array2[char2]) {
+        commonCharacters++;
+        array2.splice(char2, 1);
+        break;
       }
+    }
   }
   return commonCharacters;
 }
@@ -239,11 +239,11 @@ function addBorder(picture) {
 // console.log(addBorder(["abc", "ded"]));
 
 
-var array1 = [4,8,10,9];
-var array2 = [4,8,9,10];
+var array1 = [4, 8, 10, 9];
+var array2 = [4, 8, 9, 10];
 
-var isSame = (array1.length === array2.length) && array1.every(function(element, index) {
-  return element === array2[index]; 
+var isSame = (array1.length === array2.length) && array1.every(function (element, index) {
+  return element === array2[index];
 });
 
 // console.log(isSame);
@@ -258,7 +258,7 @@ function areSimilar(a, b) {
       if (a[twoArrays] !== b[twoArrays]) {
         sumNotEqual++;
         console.log(sumNotEqual);
-      } 
+      }
     }
     console.log(sumNotEqual);
     return sumNotEqual < 3 ? true : false;
@@ -278,7 +278,7 @@ function arrayChange(inputArray) {
       inputArray[index] = inputArray[index - 1] + 1;
     }
   }
-  return count; 
+  return count;
 }
 // console.log(arrayChange([1, 6, 2, 9, 1]));
 
@@ -348,7 +348,7 @@ function arrayMaximalAdjacentDifference(inputArray) {
 function isIPv4Address(inputString) {
   var addressParts = inputString.split(".");
   var validNum = 0;
-  
+
   if (addressParts.length === 4) {
     for (var part = 0; part < addressParts.length; part++) {
       if (addressParts[part].length > 1 && addressParts[part][0] === "0") {
@@ -389,7 +389,7 @@ function boxBlur(image) {
   while (image.length - index1 >= 3) {
     var pixel = [];
     index2 = 0;
-    while (image[0].length - index2 >= 3) { 
+    while (image[0].length - index2 >= 3) {
       var sumTotal = 0;
       for (var i = index1; i < index1 + 3; i++) {
         for (var j = index2; j < index2 + 3; j++) {
@@ -411,3 +411,135 @@ function boxBlur(image) {
 //   [6, 10, 7, 8], 
 //   [1, 4, 2, 0]]
 // ));
+
+
+
+// function minesweeper(matrix) {
+//   for (var row = 0; row < matrix.length; row++) {
+//     for (var column = 0; column < matrix[row].length; column++) {
+//       if (matrix[row][column] === false) {
+//         matrix[row][column] = 0;
+//       } else if (matrix[row][column] === true) {
+//         if (column > 0) {
+//           if (matrix[row][column - 1] === false || matrix[row][column - 1] === true) {
+//             matrix[row][column - 1] = 1;
+//           } else if (matrix[row][column - 1] >= 0) {
+//             matrix[row][column - 1]++;
+//           }
+//         }
+//         if (column < matrix[row].length - 1) {
+//           if (matrix[row][column + 1] === false || matrix[row][column + 1] === true) {
+//             matrix[row][column + 1] = 1;
+//           } else if (matrix[row][column + 1] >= 0) {
+//             matrix[row][column + 1]++;
+//           }
+//         }
+//         if (row < matrix.length - 1) {
+//           if (matrix[row + 1][column] === false || matrix[row + 1][column] === true) {
+//             matrix[row + 1][column] = 1;
+//           } else if (matrix[row + 1][column] >= 0) {
+//             matrix[row + 1][column]++;
+//           }
+//         }
+
+//         if (row > 0 && row < matrix.length - 1) {
+//           if (matrix[row - 1][column] === false || matrix[row - 1][column] === true) {
+//             matrix[row - 1][column] = 1;
+//           } else if (matrix[row - 1][column] >= 0) {
+//             matrix[row - 1][column]++;
+//           }
+
+//           if (matrix[row - 1][column - 1] === true) {
+//             matrix[row - 1][column - 1] = true;
+//           } else if (matrix[row - 1][column - 1] === false) {
+//             matrix[row - 1][column - 1] = 1;
+//           } else if (matrix[row - 1][column - 1] >= 0) {
+//             matrix[row - 1][column - 1]++;
+//           }
+
+//           if (matrix[row - 1][column + 1] === false) {
+//             matrix[row - 1][column + 1] = 1;
+//           } else if (matrix[row - 1][column + 1] >= 0) {
+//             matrix[row - 1][column + 1]++;
+//           }
+//           if (matrix[row + 1][column - 1] === false) {
+//             matrix[row + 1][column - 1] = 1;
+//           } else if (matrix[row + 1][column - 1] >= 0) {
+//             matrix[row + 1][column - 1]++;
+//           }
+//           if (matrix[row + 1][column + 1] === false) {
+//             matrix[row + 1][column + 1] = 1;
+//           } else if (matrix[row + 1][column + 1] >= 0) {
+//             matrix[row + 1][column + 1]++;
+//           }
+//         }
+//       }
+//     }
+//   }
+// matrix.forEach(subArray => {
+//   var index = subArray.indexOf(true);
+//   if (index !== -1) {
+//     subArray[index] = 1;
+//   }
+// });
+//   return matrix;
+// }
+// console.log(minesweeper([
+//   [true, false, false],
+//   [false, true, false],
+//   [false, false, false]
+// ]));
+// console.log(minesweeper([
+//   [true,false,false,true], 
+//   [false,false,true,false], 
+//   [true,true,false,true]
+// ]));
+// console.log(minesweeper([
+//   [true,true,true], 
+//   [true,true,true], 
+//   [true,true,true]
+// ]));
+
+
+
+// const directions = [
+//   [ 1,-1], [ 1, 0], [ 1, 1],
+//   [ 0,-1],          [ 0, 1],
+//   [-1,-1], [-1, 0], [-1, 1]
+// ];
+
+// const minesweeper = matrix => matrix.map((row, y) => row.map((col, x) => directions.reduce((count, i) => count += !!(matrix[y + i[0]] && matrix[y + i[0]][x + i[1]]), 0)));
+// console.log(minesweeper([
+//   [true,false,false], 
+//   [false,true,false], 
+//   [false,false,false]
+// ]));
+
+var dirs = [{ r: -1, c: -1 },
+{ r: -1, c: 0 },
+{ r: -1, c: 1 },
+{ r: 0, c: 1 },
+{ r: 0, c: -1 },
+{ r: 1, c: -1 },
+{ r: 1, c: 0 },
+{ r: 1, c: 1 }];
+
+function minesweeper(matrix) {
+  return matrix.map((a, r) => a.map((_, c) => dirs.reduce((p, v) => p += (matrix[r + v.r] || [])[c + v.c] | 0, 0)))
+}
+
+// console.log(minesweeper([
+//   [true,false,false], 
+//   [false,true,false], 
+//   [false,false,false]
+// ]));
+var n = 246;
+var digitsArray = n.toString().split('');
+console.log(digitsArray);
+for (var i = 0; i < digitsArray.length; i++) {
+  if (digitsArray[i] % 2 !== 0) {
+    var response = "false";
+  }
+}
+console.log(response === "false" ? false : true);
+
