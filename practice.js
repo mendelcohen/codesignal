@@ -535,11 +535,78 @@ function minesweeper(matrix) {
 // ]));
 var n = 246;
 var digitsArray = n.toString().split('');
-console.log(digitsArray);
+// console.log(digitsArray);
 for (var i = 0; i < digitsArray.length; i++) {
   if (digitsArray[i] % 2 !== 0) {
     var response = "false";
   }
 }
-console.log(response === "false" ? false : true);
+// console.log(response === "false" ? false : true);
 
+function variableName(name) {
+
+  var array = name.split("");
+  var index = 0;
+  while (index < array.length) {
+    if (index === 0) {
+      if ((/[a-zA-Z]/).test(array[index]) || array[index] === "_") {
+        index++;
+      } else {
+        return false;
+      }
+    } else if (index > 0 && (/[a-zA-Z]/).test(array[index]) || array[index] === "_" || (/\d/).test(array[index])) {
+      index++;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+// console.log(variableName("1now7"));
+// var hasNumber = /\d/;
+// console.log(hasNumber.test("ABC33SDF"));  //true
+// console.log(hasNumber.test("ABCSDF"));
+
+function alphabeticShift(inputString) {
+  var alphabet = {
+    1: "a",
+    2: "b",
+    3: "c",
+    4: "d",
+    5: "e",
+    6: "f",
+    7: "g",
+    8: "h",
+    9: "i",
+    10: "j",
+    11: "k",
+    12: "l",
+    13: "m",
+    14: "n",
+    15: "o",
+    16: "p",
+    17: "q",
+    18: "r",
+    19: "s",
+    20: "t",
+    21: "u",
+    22: "v",
+    23: "w",
+    24: "x",
+    25: "y",
+    26: "z"
+  };
+  var newString = "";
+  for (var i = 0; i < inputString.length; i++) {
+    for (var j in alphabet) {
+      if (inputString[i] === alphabet[26]) {
+        newString += alphabet[1];
+        break;
+      } else if (inputString[i] === alphabet[j]) {
+        newString += alphabet[parseInt(j) + 1];
+      }
+    }
+  }
+  return newString;
+}
+console.log(alphabeticShift("zcrazzz"));
