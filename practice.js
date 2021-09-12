@@ -609,4 +609,36 @@ function alphabeticShift(inputString) {
   }
   return newString;
 }
-console.log(alphabeticShift("zcrazzz"));
+// console.log(alphabeticShift("zcrazzz"));
+
+function chessBoardCellColor(cell1, cell2) {
+  if (cell1[0] === "A" || cell1[0] === "C" || cell1[0] === "E" || cell1[0] === "G") {
+    if (cell2[0] === "A" || cell2[0] === "C" || cell2[0] === "E" || cell2[0] === "G") {
+      if (parseInt(cell1[1]) % 2 !== 0 && parseInt(cell2[1]) % 2 !== 0 || parseInt(cell1[1]) % 2 === 0 && parseInt(cell2[1]) % 2 === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (parseInt(cell1[1]) % 2 !== 0 && parseInt(cell2[1]) % 2 !== 0 || parseInt(cell1[1]) % 2 === 0 && parseInt(cell2[1]) % 2 === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  } else {
+    if (cell1[0] === "B" || cell1[0] === "D" || cell1[0] === "F" || cell1[0] === "H") {
+      if (cell2[0] === "B" || cell2[0] === "D" || cell2[0] === "F" || cell2[0] === "H") {
+        if (parseInt(cell1[1]) % 2 !== 0 && parseInt(cell2[1]) % 2 !== 0 || parseInt(cell1[1]) % 2 === 0 && parseInt(cell2[1]) % 2 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+}
+console.log(chessBoardCellColor("B3", "H8"));
+console.log(chessBoardCellColor("A1", "B3"));
+console.log(chessBoardCellColor("A1", "C2"));
+console.log(chessBoardCellColor("A1", "C3"));
