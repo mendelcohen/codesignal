@@ -678,4 +678,24 @@ function depositProfit(deposit, rate, threshold) {
   }
   return yearNumber;
 }
-console.log(depositProfit(100, 20, 170));
+// console.log(depositProfit(100, 20, 170));
+
+function absoluteValuesSumMinimization(a) {
+  let minimizer = a[0];
+  let minArray = a.map(num => Math.abs(num - minimizer));
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  let lowestSum = minArray.reduce(reducer);
+
+  for (var i = 1; i < a.length; i++) {
+    let minArray = a.map(num => Math.abs(num - a[i]));
+    const reducer = (previousValue, currentValue) => previousValue + currentValue;
+    let sum = minArray.reduce(reducer);
+    if (sum < lowestSum) {
+      lowestSum = sum;
+      minimizer = a[i];
+    }
+  }
+  return minimizer;
+}
+console.log(absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]));
+
