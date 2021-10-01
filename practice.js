@@ -638,7 +638,44 @@ function chessBoardCellColor(cell1, cell2) {
     }
   }
 }
-console.log(chessBoardCellColor("B3", "H8"));
-console.log(chessBoardCellColor("A1", "B3"));
-console.log(chessBoardCellColor("A1", "C2"));
-console.log(chessBoardCellColor("A1", "C3"));
+// console.log(chessBoardCellColor("B3", "H8"));
+// console.log(chessBoardCellColor("A1", "B3"));
+// console.log(chessBoardCellColor("A1", "C2"));
+// console.log(chessBoardCellColor("A1", "C3"));
+
+// function chessBoardCellColor(cell1, cell2) {
+//   let board = {
+//     "A": 1,
+//     "B": 2,
+//     "C": 3,
+//     "D": 4,
+//     "E": 5,
+//     "F": 6,
+//     "G": 7,
+//     "H": 8
+//   };
+//   const total1 = board[cell1[0]] + parseInt(cell1[1]);
+//   const total2 = board[cell2[0]] + parseInt(cell2[1]);
+//   return total1 % 2 === total2 % 2;
+// }
+
+// function chessBoardCellColor(cell1, cell2) {
+//   return (cell1.charCodeAt(0) + Number(cell1[1]) + cell2.charCodeAt(0) + Number(cell2[1])) % 2 === 0;
+// }
+// console.log(chessBoardCellColor("B3", "H8"));
+// console.log(chessBoardCellColor("A1", "B3"));
+// console.log(chessBoardCellColor("A1", "C2"));
+// console.log(chessBoardCellColor("A1", "C3"));
+
+
+// You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
+
+function depositProfit(deposit, rate, threshold) {
+  let yearNumber = 0;
+  while (deposit < threshold) {
+    deposit += deposit * (rate / 100);
+    yearNumber++;
+  }
+  return yearNumber;
+}
+console.log(depositProfit(100, 20, 170));
