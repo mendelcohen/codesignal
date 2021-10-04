@@ -697,5 +697,10 @@ function absoluteValuesSumMinimization(a) {
   }
   return minimizer;
 }
-console.log(absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]));
+// console.log(absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]));
 
+if (absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]) === 6) {
+  console.log("PASSED");
+} else {
+  console.log("FAILED");
+}
