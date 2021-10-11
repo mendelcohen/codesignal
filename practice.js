@@ -699,8 +699,129 @@ function absoluteValuesSumMinimization(a) {
 }
 // console.log(absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]));
 
-if (absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]) === 6) {
-  console.log("PASSED");
-} else {
-  console.log("FAILED");
+// if (absoluteValuesSumMinimization([2, 4, 7, 6, 5, 19]) === 6) {
+//   console.log("PASSED");
+// } else {
+//   console.log("FAILED");
+// }
+
+// function stringsRearrangement(inputArray) {
+  
+  // loops through array to re-order as many times as length of array
+  // for (var loop = 0; loop < inputArray.length; loop++) {
+    
+  //   var i = 1;
+    // loops through array to re-order once
+    // while (i < inputArray.length) {
+      
+     
+      
+    //   var b = inputArray[i];
+    //   var a = inputArray[i - 1];
+    //   inputArray[i] = a;
+    //   inputArray[i - 1] = b;
+      // var newArray = inputArray.map(x => x);
+      // console.log(inputArray);
+      // console.log(inputArray);
+      //loops through array to compare each value
+      // var counterArray = [];
+      // for (var j = 1; j < inputArray.length; j++) {
+      //   var counter = 0;
+        
+      //   for (var x = 0; x < inputArray[j].length; x++) {
+      //     // change comparison to iterate through both strings and delete if same, then increase 
+      //     if (!inputArray[j - 1].includes(inputArray[j].charAt(x))) {
+            
+      //       console.log(inputArray[j].charAt(x));
+      //       counter++; 
+      //       console.log(counter);
+      //     }
+          // } else {
+          //   inputArray[j - 1] = inputArray[j - 1].replace(inputArray[j].charAt(x), '');
+          //   console.log(inputArray[j].charAt(x));
+          // }
+          // console.log(newArray);
+        // }
+        // for (var x = 0; x < inputArray[j - 1].length; x++) {
+        //   // change comparison to iterate through both strings and delete if same, then increase 
+        //   if (inputArray[j - 1].charAt(x) !== inputArray[j].charAt(x)) {
+        //     console.log(inputArray[j - 1].charAt(x));
+        //     console.log(inputArray[j].charAt(x));
+        //     counter++; 
+        //     console.log(counter);
+        //   } 
+        // }
+      //   counterArray.push(counter);
+        
+      //   if (counter > 1 || counter < 1) {
+          
+      //     console.log("break");
+      //     break;
+      //   }
+        
+      // }
+      // console.log(counterArray);
+      // const reducer = (previousValue, currentValue) => previousValue + currentValue;
+      // if (counterArray.reduce(reducer) === counterArray.length) {
+      //   return true;
+      // } else {
+      //   i++;
+      // }
+
+      // if (counterArray.some(el => el > 1 )) {
+      //   i++;
+      // } else {
+      //   return true;
+      // }
+      // console.log(inputArray);
+    //   i++;
+    // }
+    
+    // return counter === 1 ? true : false;
+//   } 
+//   return false; 
+// }
+// console.log(stringsRearrangement(["abc", 
+// "bef", 
+// "bcc", 
+// "bec", 
+// "bbc", 
+// "bdc"]));
+
+// if (stringsRearrangement(["abc", 
+// "bef", 
+// "bcc", 
+// "bec", 
+// "bbc", 
+// "bdc"]) === true) {
+//   console.log("PASSED");
+// } else {
+//   console.log("FAILED");
+// }
+
+// iterate through array to create all different possible orders
+// move first value up to end of array in increments
+
+// at each stop iterate through array to compare
+
+function extractEachKth(inputArray, k) {
+  var newArray = [];
+  var i = 0;
+  while (i < inputArray.length) {
+    if ((i + 1) % k === 0) {
+      i++;
+    } else {
+      newArray.push(inputArray[i]);
+      i++;
+    }
+  }
+  return newArray;
 }
+// console.log(extractEachKth([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2));
+// if (extractEachKth([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2) === [1, 3, 5, 7, 9]) {
+//   console.log("PASSED");
+// } else {
+//   console.log("FAILED");
+// }
+
+
