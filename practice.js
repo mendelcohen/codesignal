@@ -825,3 +825,10 @@ function extractEachKth(inputArray, k) {
 // }
 
 
+function firstDigit(inputString) {
+  
+  return inputString.match(/\d+/)[0];
+  
+}
+console.log(firstDigit("var_1__Int"));
+console.log(firstDigit("q2q-q"));
