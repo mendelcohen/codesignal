@@ -830,5 +830,21 @@ function firstDigit(inputString) {
   return inputString.match(/\d+/)[0];
   
 }
-console.log(firstDigit("var_1__Int"));
-console.log(firstDigit("q2q-q"));
+// console.log(firstDigit("var_1__Int"));
+// console.log(firstDigit("q2q-q"));
+
+function differentSymbolsNaive(s) {
+  var array = [];
+  var i = 0;
+  while (i < s.length) {
+    if (array.some(el => el === s.charAt(i))) {
+      i++;
+    } else {
+      array.push(s.charAt(i));
+      i++;
+    }
+  }
+  return array.length;
+}
+console.log(differentSymbolsNaive("cabca"));
+console.log(differentSymbolsNaive("cabcab"));
