@@ -883,8 +883,24 @@ function arrayMaxConsecutiveSum(inputArray, k) {
 function growingPlant(upSpeed, downSpeed, desiredHeight) {
   return desiredHeight < upSpeed ? 1 : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed) + 1);
 }
-console.log(growingPlant(20, 10, 100));
-console.log(growingPlant(100, 10, 910));
-console.log(growingPlant(100, 10, 920));
-console.log(growingPlant(10, 9, 4));
-console.log(growingPlant(10, 9, 15));
+// console.log(growingPlant(20, 10, 100));
+// console.log(growingPlant(100, 10, 910));
+// console.log(growingPlant(100, 10, 920));
+// console.log(growingPlant(10, 9, 4));
+// console.log(growingPlant(10, 9, 15));
+
+function knapsackLight(value1, weight1, value2, weight2, maxW) {
+  var items = [weight1, weight2, weight1 + weight2];
+  var values = [value1, value2, value1 + value2];
+  var maxV = 0;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] <= maxW && values[i] > maxV) {
+      console.log(values[i]);
+      maxV = values[i];
+      console.log(maxV);
+    } 
+  }
+  return maxV;
+}
+console.log(knapsackLight(10, 2, 11, 3, 6));
+console.log(knapsackLight(10, 5, 6, 4, 8));
