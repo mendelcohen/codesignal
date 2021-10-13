@@ -849,15 +849,28 @@ function differentSymbolsNaive(s) {
 // console.log(differentSymbolsNaive("cabca"));
 // console.log(differentSymbolsNaive("cabcab"));
 
+// function arrayMaxConsecutiveSum(inputArray, k) {
+  // var largestSum = inputArray[0];
+  // for (var i = 0; i <= inputArray.length - k; i++) {
+  //   var sum = 0;
+  //   for (var j = i; j < i + k; j++) {
+  //     console.log(inputArray[j]);
+  //     sum += inputArray[j];
+  //   }
+  //   // console.log(sum);
+  //   if (sum > largestSum) {
+  //     largestSum = sum;
+  //   }
+  // }
+  // return largestSum;
+// }
+// console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 2));
+// console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 4));
+
 function arrayMaxConsecutiveSum(inputArray, k) {
   var largestSum = inputArray[0];
-  for (var i = 0; i < inputArray.length - k; i++) {
-    var sum = 0;
-    for (var j = i; j < i + k; j++) {
-      console.log(inputArray[j]);
-      sum += inputArray[j];
-    }
-    // console.log(sum);
+  for (var i = 0; i <= inputArray.length - k; i++) {
+    var sum = inputArray.slice(i, i + k).reduce((val1, val2) => val1 + val2);
     if (sum > largestSum) {
       largestSum = sum;
     }
@@ -865,3 +878,4 @@ function arrayMaxConsecutiveSum(inputArray, k) {
   return largestSum;
 }
 console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 2));
+console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 4));
