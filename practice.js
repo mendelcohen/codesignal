@@ -877,5 +877,14 @@ function arrayMaxConsecutiveSum(inputArray, k) {
   }
   return largestSum;
 }
-console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 2));
-console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 4));
+// console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 2));
+// console.log(arrayMaxConsecutiveSum([1, 2, 3, 4, 2], 4));
+
+function growingPlant(upSpeed, downSpeed, desiredHeight) {
+  return desiredHeight < upSpeed ? 1 : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed) + 1);
+}
+console.log(growingPlant(20, 10, 100));
+console.log(growingPlant(100, 10, 910));
+console.log(growingPlant(100, 10, 920));
+console.log(growingPlant(10, 9, 4));
+console.log(growingPlant(10, 9, 15));
