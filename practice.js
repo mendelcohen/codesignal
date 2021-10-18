@@ -932,8 +932,20 @@ function knapsackLight(value1, weight1, value2, weight2, maxW) {
 
 function longestDigitsPrefix(inputString) {
   return parseInt(inputString.charAt(0)) - parseInt(inputString.charAt(0)) === 0 ? inputString.match(/\d+/)[0] : "";
-  // return typeof parseInt(inputString.charAt(0));
 }
-console.log(longestDigitsPrefix("123aa1"));
-console.log(longestDigitsPrefix("q22q-q"));
+// console.log(longestDigitsPrefix("123aa1"));
+// console.log(longestDigitsPrefix("q22q-q"));
 
+function digitDegree(n) {
+  var amount = 0;
+  var digit = 1;
+  while (digit < `${n}`.length) {
+    var total = `${n}`.split('').reduce((a, b) => parseInt(a) + parseInt(b));
+    n = total;
+    amount++;
+  } 
+  return amount;
+}
+console.log(digitDegree(5));
+console.log(digitDegree(100));
+console.log(digitDegree(91));
