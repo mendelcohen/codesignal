@@ -908,10 +908,32 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
 function knapsackLight(value1, weight1, value2, weight2, maxW) {
   return Math.max(
     maxW >= weight1 && value1,
-    maxW >= weight2 && value2,
+    maxW >= weight2 && value2, 
     maxW >= weight1 + weight2 && value1 + value2
   );
 }
-console.log(knapsackLight(10, 2, 11, 3, 6));
-console.log(knapsackLight(10, 5, 6, 4, 8));
+// console.log(knapsackLight(10, 2, 11, 3, 6));
+// console.log(knapsackLight(10, 5, 6, 4, 8));
+
+// function longestDigitsPrefix(inputString) {
+//   console.log(parseInt(inputString.charAt(0)));
+
+//   if (console.log(parseInt(inputString.charAt(0)) === "NaN")) {
+//     return "";
+//   } else if (typeof parseInt(inputString.charAt(0)) === "number") {
+//     return inputString.match(/\d+/)[0];
+//   } else {
+//     return "";
+//   }
+//   // return typeof parseInt(inputString.charAt(0));
+// }
+// console.log(longestDigitsPrefix("123aa1"));
+// console.log(longestDigitsPrefix("q22q-q"));
+
+function longestDigitsPrefix(inputString) {
+  return parseInt(inputString.charAt(0)) - parseInt(inputString.charAt(0)) === 0 ? inputString.match(/\d+/)[0] : "";
+  // return typeof parseInt(inputString.charAt(0));
+}
+console.log(longestDigitsPrefix("123aa1"));
+console.log(longestDigitsPrefix("q22q-q"));
 
