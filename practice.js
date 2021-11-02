@@ -946,6 +946,18 @@ function digitDegree(n) {
   } 
   return amount;
 }
-console.log(digitDegree(5));
-console.log(digitDegree(100));
-console.log(digitDegree(91));
+// console.log(digitDegree(5));
+// console.log(digitDegree(100));
+// console.log(digitDegree(91));
+
+function bishopAndPawn(bishop, pawn) {
+  bishop = bishop.split("");
+  pawn = pawn.split("");
+  return Math.abs((bishop[0].charCodeAt() - 96) - (pawn[0].charCodeAt() - 96)) === Math.abs(parseInt(bishop[1]) - parseInt(pawn[1])) ? true : false;
+}
+console.log(bishopAndPawn("a1", "b2"));
+console.log(bishopAndPawn("a1", "c2"));
+console.log(bishopAndPawn("d4", "c3"));
+console.log(bishopAndPawn("a5", "c3"));
+console.log(bishopAndPawn("a1", "c3"));
+// console.log('a'.charCodeAt() - 96);
