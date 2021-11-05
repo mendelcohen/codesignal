@@ -965,20 +965,9 @@ function bishopAndPawn(bishop, pawn) {
 
 function isBeautifulString(inputString) {
   var letters = {a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0, k: 0, l: 0, m: 0, n: 0, o: 0, p: 0, q: 0, r: 0, s: 0, t: 0, u: 0, v: 0, w: 0, x: 0, y: 0, z: 0};
-  var i = 0;
-  while (i < inputString.length) {
-    var j = 0;
-    var count = 0;
-    while (j < inputString.length) { 
-      if (inputString[j] === inputString[i]) {
-        count++;
-      }
-      j++;
-    }
-    letters[inputString[i]] = count;
-    i++;
+  for (var i = 0; i < inputString.length; i++) {
+    letters[inputString[i]]++;
   }
-  console.log(letters);
   var k = 0;
   while (k < 26) {
     if (letters[String.fromCharCode('a'.charCodeAt() + k)] < letters[String.fromCharCode('a'.charCodeAt() + (k + 1))]) {
