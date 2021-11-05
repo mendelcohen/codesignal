@@ -951,13 +951,59 @@ function digitDegree(n) {
 // console.log(digitDegree(91));
 
 function bishopAndPawn(bishop, pawn) {
-  bishop = bishop.split("");
-  pawn = pawn.split("");
+  // bishop = bishop.split("");
+  // pawn = pawn.split("");
   return Math.abs((bishop[0].charCodeAt() - 96) - (pawn[0].charCodeAt() - 96)) === Math.abs(parseInt(bishop[1]) - parseInt(pawn[1])) ? true : false;
 }
-console.log(bishopAndPawn("a1", "b2"));
-console.log(bishopAndPawn("a1", "c2"));
-console.log(bishopAndPawn("d4", "c3"));
-console.log(bishopAndPawn("a5", "c3"));
-console.log(bishopAndPawn("a1", "c3"));
+// console.log(bishopAndPawn("a1", "b2"));
+// console.log(bishopAndPawn("a1", "c2"));
+// console.log(bishopAndPawn("d4", "c3"));
+// console.log(bishopAndPawn("a5", "c3"));
+// console.log(bishopAndPawn("a1", "c3"));
 // console.log('a'.charCodeAt() - 96);
+
+
+function isBeautifulString(inputString) {
+  var letters = {a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0, k: 0, l: 0, m: 0, n: 0, o: 0, p: 0, q: 0, r: 0, s: 0, t: 0, u: 0, v: 0, w: 0, x: 0, y: 0, z: 0};
+  var i = 0;
+  while (i < inputString.length) {
+    var j = 0;
+    var count = 0;
+    while (j < inputString.length) { 
+      if (inputString[j] === inputString[i]) {
+        count++;
+      }
+      j++;
+    }
+    letters[inputString[i]] = count;
+    i++;
+  }
+  console.log(letters);
+  var k = 0;
+  while (k < 26) {
+    if (letters[String.fromCharCode('a'.charCodeAt() + k)] < letters[String.fromCharCode('a'.charCodeAt() + (k + 1))]) {
+      return false;
+    }
+    k++;
+  }
+  return true;
+}
+console.log(isBeautifulString("bbbaacdafe"));
+
+if (isBeautifulString("aabbb") === false) {
+  console.log("THE CODE PASSES");
+}  else {
+  console.log("THE CODE FAILS");
+}
+
+if (isBeautifulString("bbbaacdafe") === true) {
+  console.log("THE CODE PASSES");
+}  else {
+  console.log("THE CODE FAILS");
+}
+
+if (isBeautifulString("bbc") === false) {
+  console.log("THE CODE PASSES");
+}  else {
+  console.log("THE CODE FAILS");
+}
