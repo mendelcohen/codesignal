@@ -977,22 +977,51 @@ function isBeautifulString(inputString) {
   }
   return true;
 }
-console.log(isBeautifulString("bbbaacdafe"));
+// console.log(isBeautifulString("bbbaacdafe"));
 
-if (isBeautifulString("aabbb") === false) {
-  console.log("THE CODE PASSES");
-}  else {
-  console.log("THE CODE FAILS");
+// if (isBeautifulString("aabbb") === false) {
+//   console.log("THE CODE PASSES");
+// }  else {
+//   console.log("THE CODE FAILS");
+// }
+
+// if (isBeautifulString("bbbaacdafe") === true) {
+//   console.log("THE CODE PASSES");
+// }  else {
+//   console.log("THE CODE FAILS");
+// }
+
+// if (isBeautifulString("bbc") === false) {
+//   console.log("THE CODE PASSES");
+// }  else {
+//   console.log("THE CODE FAILS");
+// }
+
+function findEmailDomain(address) {
+  return address.split("@")[address.split("@").length - 1];
+  // var domain = address.split("@");
+  // return domain[domain.length - 1];
+}
+console.log(findEmailDomain("mmhakohen@gmail.com"));
+console.log(findEmailDomain("chaniekohn@hotmail.com"));
+
+
+if (findEmailDomain("mmhakohen@gmail.com") === "gmail.com") {
+  console.log("CODE PASSES");
+} else {
+  console.log("CODE FAILS");
 }
 
-if (isBeautifulString("bbbaacdafe") === true) {
-  console.log("THE CODE PASSES");
-}  else {
-  console.log("THE CODE FAILS");
+if (findEmailDomain("chaniekohn@hotmail.com") === "hotmail.com") {
+  console.log("CODE PASSES");
+} else {
+  console.log("CODE FAILS");
 }
 
-if (isBeautifulString("bbc") === false) {
-  console.log("THE CODE PASSES");
-}  else {
-  console.log("THE CODE FAILS");
+if (findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com") === "usual.com") {
+  console.log("CODE PASSES");
+} else {
+  console.log("CODE FAILS");
 }
+
+console.log("\"very.unusual.@.unusual.com\"@usual.com".split("@"));
