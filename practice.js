@@ -998,9 +998,7 @@ function isBeautifulString(inputString) {
 // }
 
 function findEmailDomain(address) {
-  return address.split("@")[address.split("@").length - 1];
-  // var domain = address.split("@");
-  // return domain[domain.length - 1];
+  return address.split("@").pop();
 }
 console.log(findEmailDomain("mmhakohen@gmail.com"));
 console.log(findEmailDomain("chaniekohn@hotmail.com"));
