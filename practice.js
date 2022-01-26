@@ -1000,26 +1000,113 @@ function isBeautifulString(inputString) {
 function findEmailDomain(address) {
   return address.split("@").pop();
 }
-console.log(findEmailDomain("mmhakohen@gmail.com"));
-console.log(findEmailDomain("chaniekohn@hotmail.com"));
+// console.log(findEmailDomain("mmhakohen@gmail.com"));
+// console.log(findEmailDomain("chaniekohn@hotmail.com"));
 
 
-if (findEmailDomain("mmhakohen@gmail.com") === "gmail.com") {
-  console.log("CODE PASSES");
-} else {
-  console.log("CODE FAILS");
+// if (findEmailDomain("mmhakohen@gmail.com") === "gmail.com") {
+//   console.log("CODE PASSES");
+// } else {
+//   console.log("CODE FAILS");
+// }
+
+// if (findEmailDomain("chaniekohn@hotmail.com") === "hotmail.com") {
+//   console.log("CODE PASSES");
+// } else {
+//   console.log("CODE FAILS");
+// }
+
+// if (findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com") === "usual.com") {
+//   console.log("CODE PASSES");
+// } else {
+//   console.log("CODE FAILS");
+// }
+
+// console.log("\"very.unusual.@.unusual.com\"@usual.com".split("@"));
+
+// function solution(st) {
+//   if (st.split("").reverse().join("") === st) {
+//     return "Palindrome";
+//   } else {
+//     var array = st.split("");
+//     var arrayStr = [];
+//     for (var i = 0; i <= (array.length + arrayStr.length) / 2; i++) {
+//       if (array[i] === array[array.length - 1]) {
+//         var j = i + 1;
+//         var k = 2;
+//         while (j <= (array.length + arrayStr.length) / 2) {
+//           if (array[j] === array[array.length - k]) {
+//             j++;
+//             k++;
+//             if (j >= (array.length + arrayStr.length) / 2) {
+//               return arrayStr;
+//             }
+//           } else {
+//             arrayStr.push(array[i]);
+//             break;
+//           } 
+//         } 
+//       } else {
+//         if (i >= (array.length + arrayStr.length) / 2) {
+//           break;
+//         } else {
+//           arrayStr.push(array[i]);
+//         }
+//       }
+//     }
+//   }
+//   return arrayStr.length;
+// }
+// console.log(solution("palilla"));
+
+
+
+
+
+
+function solution(st) {
+  var array = st.split("");
+  var index = array.length;
+  for (var i = 0; i <= array.length / 2; i++) {
+    if (array[i] === array[index - 1]) {
+      var j = i + 1;
+      var k = 2;
+      while (j <= array.length / 2) {
+        if (array[j] === array[index - k]) {
+          j++;
+          k++;
+          if (j >= array.length / 2) {
+            return array.join("");
+          }
+        } else {
+          console.log(array[i]);
+          array.splice(index, 0, array[i]);
+          break;
+        } 
+      } 
+    } else {
+      if (i >= array.length / 2) {
+        break;
+      } else {
+        console.log(array[i]);
+        array.splice(index, 0, array[i]);
+      }
+    }
+  }
+  return array.join("");
 }
+console.log(solution("abcabc"));
 
-if (findEmailDomain("chaniekohn@hotmail.com") === "hotmail.com") {
-  console.log("CODE PASSES");
-} else {
-  console.log("CODE FAILS");
-}
-
-if (findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com") === "usual.com") {
-  console.log("CODE PASSES");
-} else {
-  console.log("CODE FAILS");
-}
-
-console.log("\"very.unusual.@.unusual.com\"@usual.com".split("@"));
+// const students = [
+//   { id: 100, name: 'Abolfazl', family: 'Roshanzamir', group: [{id: 1550, name: 'Ablazl', family: 'Roshanzamir'}, {id: 1790, name: 'Abo', family: 'Roshanzamir'}] },
+//   { id: 2, name: 'Andy', family: 'Madadian' },
+//   { id: 1500, name: 'Kouros', family: 'Shahmir' }
+// ];
+// const max = Math.max.apply(null, students.map(item => {
+//   if (typeof item.include === Array) {
+//     console.log("array");
+//   } else {
+//     item.id;
+//   }
+// }));
+// console.log(max);
