@@ -1064,7 +1064,7 @@ function findEmailDomain(address) {
 
 
 
-function solution(st) {
+function solutions(st) {
   var array = st.split("");
   var index = array.length;
   for (var i = 0; i <= array.length / 2; i++) {
@@ -1095,18 +1095,30 @@ function solution(st) {
   }
   return array.join("");
 }
-console.log(solution("abcabc"));
+// console.log(solution("abcabc"));
 
-// const students = [
-//   { id: 100, name: 'Abolfazl', family: 'Roshanzamir', group: [{id: 1550, name: 'Ablazl', family: 'Roshanzamir'}, {id: 1790, name: 'Abo', family: 'Roshanzamir'}] },
-//   { id: 2, name: 'Andy', family: 'Madadian' },
-//   { id: 1500, name: 'Kouros', family: 'Shahmir' }
-// ];
-// const max = Math.max.apply(null, students.map(item => {
-//   if (typeof item.include === Array) {
-//     console.log("array");
-//   } else {
-//     item.id;
-//   }
-// }));
-// console.log(max);
+function solution(votes, k) {
+  var potentialWinners = 0;
+  var maxVotes = Math.max(...votes);
+  var maxs = 0;
+  votes.forEach(num => {
+    if (num === maxVotes) {
+      maxs++;
+    }
+  });
+  votes.forEach(num => {
+    if (num + k > maxVotes) {
+      potentialWinners++;
+    } else if (k === 0 && maxs === 1 && num + k === maxVotes) {
+      potentialWinners++;
+    }
+  });
+  return potentialWinners;
+}
+console.log(solution([2, 3, 5, 2], 0));
+
+if (solution([1, 5, 5, 5], 3) === 3) {
+  console.log("CODE PASSES");
+} else {
+  console.log("FAILED!");
+}
