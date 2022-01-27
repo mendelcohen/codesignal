@@ -1122,3 +1122,11 @@ if (solution([1, 5, 5, 5], 3) === 3) {
 } else {
   console.log("FAILED!");
 }
+
+function remainingVotes(votes, k) {
+  var max = Math.max(...votes);
+  var winners = votes.filter(vote => vote + k > max || vote === max).length;
+  return k === 0 ? winners > 1 ? 0 : 1 : winners;
+}
+console.log(remainingVotes([2, 3, 5, 5, 2], 0));
+
