@@ -1115,18 +1115,113 @@ function solution(votes, k) {
   });
   return potentialWinners;
 }
-console.log(solution([2, 3, 5, 2], 0));
+// console.log(solution([2, 3, 5, 2], 0));
 
-if (solution([1, 5, 5, 5], 3) === 3) {
-  console.log("CODE PASSES");
-} else {
-  console.log("FAILED!");
-}
+// if (solution([1, 5, 5, 5], 3) === 3) {
+//   console.log("CODE PASSES");
+// } else {
+//   console.log("FAILED!");
+// }
 
 function remainingVotes(votes, k) {
   var max = Math.max(...votes);
   var winners = votes.filter(vote => vote + k > max || vote === max).length;
   return k === 0 ? winners > 1 ? 0 : 1 : winners;
 }
-console.log(remainingVotes([2, 3, 5, 5, 2], 0));
+// console.log(remainingVotes([2, 3, 5, 2], 4));
 
+function solutione(inputString) {
+  var i = 0;
+  while (i < inputString.length) {
+    if (inputString.length !== 17) {
+      return false;
+    }
+    if ((i + 1) % 3 === 0) {
+      console.log(i);
+      if (inputString[i] !== "-") {
+        return false;
+      } else {
+        i++;
+      }
+    } else {
+      if (inputString[i] === "0" || inputString[i] === "1" || inputString[i] === "2" || inputString[i] === "3" || inputString[i] === "4" || inputString[i] === "5" || inputString[i] === "6" || inputString[i] === "7" || inputString[i] === "8" || inputString[i] === "9" || inputString[i] === "A" || inputString[i] === "B" || inputString[i] === "C" || inputString[i] === "D" || inputString[i] === "E" || inputString[i] === "F") {
+        i++;
+      } else {
+        return false;
+      }
+    }
+    
+  }
+  return true;
+}
+// console.log(solutione("00-1B-63-84-45-E6"));
+// console.log(solutione("Z1-1B-63-84-45-E6"));
+// console.log(solutione("12-34-56-78-9A-BG"));
+
+function ssolution(inputString) {
+  if (inputString.length !== 17) {
+    return false;
+  }
+  for (var a = 0; a < inputString.length; a++) {
+    if ((a + 1) % 3 === 0 ) {
+      if (inputString[a] !== "-") {
+        return false;
+      }
+    } else if (!isCharOfMac(inputString[a])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function isCharOfMac(c) {
+  var macAdress = "0123456789ABCDEF".split("");
+  for (i = 0 ; i < macAdress.length ; i++) {
+    if (c === macAdress[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+// console.log(ssolution("00-1B-63-84-45-E6"));
+// console.log(ssolution("Z1-1B-63-84-45-E6"));
+// console.log(ssolution("12-34-56-78-9A-BG"));
+
+// orders lists
+// order has name price rush
+// function: print kitchen1 for rush, kitchen 2 for not rush
+
+// function printOrders(orderList) {
+//   orderList.forEach(order => {
+//     order.rush ? console.log("kitchen1") : console.log("kitchen2");
+//   })
+// }
+// console.log(printOrders([...]));
+
+// list of 2 letter abbrev. us states. some repeated. some missing.
+// return object key value (state: number)
+
+// function stateAbbrevAmount(arrayAbbrev) {
+//   var abbrevObj = {};
+//   arrayAbbrev.forEach(abbrev => {
+//     if (abbrevObj[abbrev]) {
+//       abbrevObj[abbrev]++;
+//     } else {
+//       abbrevObj[abbrev] = 1;
+//     }
+//   });
+//   stateList.forEach(state => {
+//     if (!abbrevObj.include(state)) {
+//       abbrevObj[stateList[state]] = 0;
+//     }
+//   })
+//   return abbrevObj;
+// }
+// console.log(stateAbbrevAmount[...]);
+
+function isDigit(symbol) { 
+  return isNaN(parseInt(symbol)) ? false : true; 
+}
+console.log(isDigit(2));
+console.log(isDigit("1"));
+console.log(isDigit("-"));
