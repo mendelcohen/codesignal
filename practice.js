@@ -1219,8 +1219,16 @@ function isCharOfMac(c) {
 // }
 // console.log(stateAbbrevAmount[...]);
 
+// function isDigit(symbol) { 
+//   return isNaN(parseInt(symbol)) ? false : true; 
+// }
+// console.log(isDigit(2));
+// console.log(isDigit("1"));
+// console.log(isDigit("-"));
+
+
 function isDigit(symbol) { 
-  return isNaN(parseInt(symbol)) ? false : true; 
+  return !isNaN(parseInt(symbol)); 
 }
 console.log(isDigit(2));
 console.log(isDigit("1"));
