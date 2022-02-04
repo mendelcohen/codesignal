@@ -1230,6 +1230,59 @@ function isCharOfMac(c) {
 function isDigit(symbol) { 
   return !isNaN(parseInt(symbol)); 
 }
-console.log(isDigit(2));
-console.log(isDigit("1"));
-console.log(isDigit("-"));
+// console.log(isDigit(2));
+// console.log(isDigit("1"));
+// console.log(isDigit("-"));
+
+function lineEncode(s) {
+  var newString = "";
+  var newSubstring = "";
+  var i = 0;
+  while (i < s.length) {
+    newSubstring = s[i];
+    while (s[i] === s[i + 1]) {   
+      newSubstring += s[i];
+      i++;
+    }
+    newSubstring.length === 1 ? newString += newSubstring : newString += (newSubstring.length + s[i]);
+    i++;
+  }
+  return newString;
+}
+// console.log(lineEncode("aabbbc"));
+var code = "hat";
+var index = 1;
+// console.log(code.charCodeAt(index));
+
+function movesCount(cell) {
+  var moves = 2;
+  if (cell.charCodeAt(0) - 96 > 2 && cell.charCodeAt(0) - 96 < 7 && parseInt(cell.charAt(1)) > 2 && parseInt(cell.charAt(1)) < 7) {
+    moves = 8;
+  } else if  (cell.charCodeAt(0) - 96 === 1 || parseInt(cell.charAt(1)) === 1 || cell.charCodeAt(0) - 96 === 8 || parseInt(cell.charAt(1)) === 8) {
+    if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 1 || Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 6) {
+      moves = 3;
+    } else if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) > 1 && Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) < 6) {
+      moves = 4;
+    }
+  } else {
+    if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 0 || Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 5) {
+      moves = 4;
+    } else if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) > 0) {
+      moves = 6;
+    }
+  }
+  return moves;
+}
+console.log(movesCount("b1"));
+console.log(movesCount("b2"));
+console.log(movesCount("b7"));
+console.log(movesCount("b8"));
+console.log(movesCount("a1"));
+console.log(movesCount("c1"));
+console.log(movesCount("d1"));
+console.log(movesCount("c3"));
+console.log(movesCount("c2"));
+console.log(movesCount("c2"));
+console.log(movesCount("h1"));
+console.log(movesCount("b7"));
+console.log(movesCount("b8"));
