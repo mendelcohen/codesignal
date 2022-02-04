@@ -1254,7 +1254,7 @@ var code = "hat";
 var index = 1;
 // console.log(code.charCodeAt(index));
 
-function movesCount(cell) {
+function moveCount(cell) {
   var moves = 2;
   if (cell.charCodeAt(0) - 96 > 2 && cell.charCodeAt(0) - 96 < 7 && parseInt(cell.charAt(1)) > 2 && parseInt(cell.charAt(1)) < 7) {
     moves = 8;
@@ -1268,6 +1268,43 @@ function movesCount(cell) {
     if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 0 || Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) === 5) {
       moves = 4;
     } else if (Math.abs(parseInt(cell.charAt(1)) - (cell.charCodeAt(0) - 96)) > 0) {
+      moves = 6;
+    }
+  }
+  return moves;
+}
+// console.log(movesCount("b1"));
+// console.log(movesCount("b2"));
+// console.log(movesCount("b7"));
+// console.log(movesCount("b8"));
+// console.log(movesCount("a1"));
+// console.log(movesCount("c1"));
+// console.log(movesCount("d1"));
+// console.log(movesCount("c3"));
+// console.log(movesCount("c2"));
+// console.log(movesCount("c2"));
+// console.log(movesCount("h1"));
+// console.log(movesCount("b7"));
+// console.log(movesCount("b8"));
+
+function movesCount(cell) {
+  var moves = 2;
+
+  var a = cell.charCodeAt(0) - 96;
+  var b = parseInt(cell.charAt(1));
+
+  if (a > 2 && a < 7 && b > 2 && b < 7) {
+    moves = 8;
+  } else if (a === 1 || b === 1 || a === 8 || b === 8) {
+    if (Math.abs(b) - a === 1 || Math.abs(b - a) === 6) {
+      moves = 3;
+    } else if (Math.abs(b - a) > 1 && Math.abs(b - a) < 6) {
+      moves = 4;
+    }
+  } else {
+    if (Math.abs(b - a) === 0 || Math.abs(b - a) === 5) {
+      moves = 4;
+    } else if (Math.abs(b - a) > 0) {
       moves = 6;
     }
   }
