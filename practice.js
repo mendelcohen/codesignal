@@ -1310,16 +1310,53 @@ function movesCount(cell) {
   }
   return moves;
 }
-console.log(movesCount("b1"));
-console.log(movesCount("b2"));
-console.log(movesCount("b7"));
-console.log(movesCount("b8"));
-console.log(movesCount("a1"));
-console.log(movesCount("c1"));
-console.log(movesCount("d1"));
-console.log(movesCount("c3"));
-console.log(movesCount("c2"));
-console.log(movesCount("c2"));
-console.log(movesCount("h1"));
-console.log(movesCount("b7"));
-console.log(movesCount("b8"));
+// console.log(movesCount("b1"));
+// console.log(movesCount("b2"));
+// console.log(movesCount("b7"));
+// console.log(movesCount("b8"));
+// console.log(movesCount("a1"));
+// console.log(movesCount("c1"));
+// console.log(movesCount("d1"));
+// console.log(movesCount("c3"));
+// console.log(movesCount("c2"));
+// console.log(movesCount("c2"));
+// console.log(movesCount("h1"));
+// console.log(movesCount("b7"));
+// console.log(movesCount("b8"));
+
+
+
+// Delete digit: Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+// Input: 152, Output should be 52. 
+// Input: 1001, Output should be 101.
+
+// iterate through digits
+// at each digit delete it 
+// construct a number from remaining digits
+// assign number to variable maximalNum if > maximalNum
+// return maximalNum
+
+function deleteDigit(num) {
+  var maximalNum = 0;
+  var arrayNum = ("" + num).split('');
+  // console.log(array);
+  for (var i = 0; i < arrayNum.length; i++) {
+    // console.log(arrayNum);
+    arrayNum.splice(i, 1);
+    var number = parseInt(arrayNum.join(''));
+    // console.log(array);
+    if (number > maximalNum) {
+      maximalNum = number;
+    }
+    arrayNum = ("" + num).split('');
+    // console.log(arrayNum);
+  }
+  return maximalNum;
+}
+console.log(deleteDigit(222219));
+// console.log(deleteDigit(1001));
+
+// var num = 1524;
+// var array = ("" + num).split('');
+// var newArray = array.splice(1, 1);
+// console.log(typeof parseInt(array.join('')));
