@@ -1339,24 +1339,47 @@ function movesCount(cell) {
 function deleteDigit(num) {
   var maximalNum = 0;
   var arrayNum = ("" + num).split('');
-  // console.log(array);
+ 
   for (var i = 0; i < arrayNum.length; i++) {
-    // console.log(arrayNum);
+    
     arrayNum.splice(i, 1);
     var number = parseInt(arrayNum.join(''));
-    // console.log(array);
+  
     if (number > maximalNum) {
       maximalNum = number;
     }
     arrayNum = ("" + num).split('');
-    // console.log(arrayNum);
   }
   return maximalNum;
 }
-console.log(deleteDigit(222219));
+// console.log(deleteDigit(222219));
 // console.log(deleteDigit(1001));
+// const str = 'Life, the universe and everything. Answer:';
 
-// var num = 1524;
-// var array = ("" + num).split('');
-// var newArray = array.splice(1, 1);
-// console.log(typeof parseInt(array.join('')));
+// console.log(typeof parseInt(`${str.length}`));
+// var text = "Ready, steady, go!";
+// console.log(text.split(","));
+
+function longestWord(text) {
+  var longestWord = "";
+  var word = "";
+  for (var i = 0; i < text.length; i++) {
+    if (text[i].match(/^[A-Za-z]+$/)) {
+      word += text[i];
+      if (i === text.length - 1) {
+        if (parseInt(`${word.length}`) > `${longestWord.length}`) {
+          longestWord = word;
+        }
+      }
+    } else if (!text[i].match(/^[A-Za-z]+$/)) {
+      console.log(text[i]);
+      if (parseInt(`${word.length}`) > `${longestWord.length}`) {
+        longestWord = word;
+        
+      }
+      word = "";
+    }
+  }
+  return longestWord;
+}
+console.log(longestWord("ABCd"));
