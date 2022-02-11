@@ -1401,19 +1401,10 @@ function longestWord(text) {
 // N is an integer within the range [1..100,000];
 // each element of array A is an integer within the range [−1,000,000..1,000,000].
 function lowestNumber(A) {
-  var number = 1;
-  var array = A.filter(num => num > 0).sort();
-  if (1 < Math.min(array) || array.length === 0) {
-    return number;
-  } else {
-    for (number <= 100000; number++;) {
-      if (!array.includes(number)) {
-        return number;
-      }  
-      // if (array[i] !== array[i + 1] && array[i] + 1 !== array[i + 1]) {
-      //   return number = array[i] + 1;
-      // }
-    }
+  for (var number = 1; number <= 100000; number++) {
+    if (!A.includes(number)) {
+      return number;
+    }  
   }
 }
 console.log(lowestNumber([1, 3, 6, 4, 1, 2]));
