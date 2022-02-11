@@ -1406,10 +1406,15 @@ function lowestNumber(A) {
   if (1 < Math.min(array) || array.length === 0) {
     return number;
   } else {
-    for (var i = 0; i < array.length; i++) {
-      if (array[i] !== array[i + 1] && array[i] + 1 !== array[i + 1]) {
-        return number = array[i] + 1;
+    while (number <= 100000) {
+      if (!array.includes(number)) {
+        return number;
+      } else {
+        number++;
       }
+      // if (array[i] !== array[i + 1] && array[i] + 1 !== array[i + 1]) {
+      //   return number = array[i] + 1;
+      // }
     }
   }
 }
