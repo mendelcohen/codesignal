@@ -1407,6 +1407,37 @@ function lowestNumber(A) {
     }  
   }
 }
-console.log(lowestNumber([1, 3, 6, 4, 1, 2]));
-console.log(lowestNumber([1, 2, 3]));
-console.log(lowestNumber([-1, -3]));
+// console.log(lowestNumber([1, 3, 6, 4, 1, 2]));
+// console.log(lowestNumber([1, 2, 3]));
+// console.log(lowestNumber([-1, -3]));
+
+// && parseInt(time.charAt(0)) < 3
+// !isNaN(parseInt(time.charAt(0))) &&  
+function realTime(time) {
+  if (parseInt(time.charAt(0)) === 0) {
+    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (parseInt(time.charAt(0)) === 1) {
+    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (parseInt(time.charAt(0)) === 2) {
+    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 3 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+console.log(realTime("13:58"));
+console.log(realTime("25:51"));
+console.log(realTime("02:76"));
+var str = "23:58";
+console.log(parseInt(str.charAt(3)));
