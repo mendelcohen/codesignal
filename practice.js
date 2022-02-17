@@ -1413,28 +1413,33 @@ function lowestNumber(A) {
 
 // && parseInt(time.charAt(0)) < 3
 // !isNaN(parseInt(time.charAt(0))) &&  
+// function realTime(time) {
+//   if (parseInt(time.charAt(0)) === 0) {
+//     if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   } else if (parseInt(time.charAt(0)) === 1) {
+//     if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   } else if (parseInt(time.charAt(0)) === 2) {
+//     if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 3 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   } else {
+//     return false;
+//   }
+// }
+
 function realTime(time) {
-  if (parseInt(time.charAt(0)) === 0) {
-    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (parseInt(time.charAt(0)) === 1) {
-    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 9 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (parseInt(time.charAt(0)) === 2) {
-    if (parseInt(time.charAt(1)) >= 0 && parseInt(time.charAt(1)) <= 3 && parseInt(time.charAt(3)) >= 0 && parseInt(time.charAt(3)) <= 5 && parseInt(time.charAt(4)) >= 0 && parseInt(time.charAt(4)) <= 9) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
+  var hoursMinutes = time.split(':');
+  return hoursMinutes[0] < 24 && hoursMinutes[1] < 60;
 }
 console.log(realTime("13:58"));
 console.log(realTime("25:51"));
