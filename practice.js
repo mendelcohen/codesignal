@@ -1441,8 +1441,28 @@ function realTime(time) {
   var hoursMinutes = time.split(':');
   return hoursMinutes[0] < 24 && hoursMinutes[1] < 60;
 }
-console.log(realTime("13:58"));
-console.log(realTime("25:51"));
-console.log(realTime("02:76"));
-var str = "23:58";
-console.log(parseInt(str.charAt(3)));
+// console.log(realTime("13:58"));
+// console.log(realTime("25:51"));
+// console.log(realTime("02:76"));
+// var str = "23:58";
+// console.log(parseInt(str.charAt(3)));
+
+function academicNotes(objectNotes) {
+  if (Array.isArray(objectNotes)) {
+    return "Not an object";
+  } else {
+    var object = {};
+    var array = Object.entries(objectNotes);
+    if (array.length === 0) {
+      return "Empty object";
+    } else {
+      object["accumulatedPercentage"] = array[0][1] + array[1][1];
+      object["accumulatedNote"] = array[0][0] * (array[0][1] / 100) + array[1][0] * (array[1][1]  / 100);
+      return object;
+    }
+  }
+  
+}
+console.log(academicNotes({ 2.9: 40, 3.1: 30 }));
+console.log(academicNotes([{ 2.9: 40 }]));
+console.log(academicNotes({}));
