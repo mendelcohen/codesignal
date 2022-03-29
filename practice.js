@@ -1466,3 +1466,10 @@ function academicNotes(objectNotes) {
 // console.log(academicNotes({ 2.9: 40, 3.1: 30 }));
 // console.log(academicNotes([{ 2.9: 40 }]));
 // console.log(academicNotes({}));
+function addNumbers(inputString) {
+  var array = inputString.match(/\d+/g);
+  var total = 0;
+  return array ? array.reduce((a, b) => parseInt(a) + parseInt(b), total) : 0;
+} 
+console.log(addNumbers("1 banana + 1 pineapple + 3 oranges"));    
+console.log(addNumbers("banana, pineapple, oranges")); 
