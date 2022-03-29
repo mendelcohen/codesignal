@@ -1463,6 +1463,6 @@ function academicNotes(objectNotes) {
   }
   
 }
-console.log(academicNotes({ 2.9: 40, 3.1: 30 }));
-console.log(academicNotes([{ 2.9: 40 }]));
-console.log(academicNotes({}));
+// console.log(academicNotes({ 2.9: 40, 3.1: 30 }));
+// console.log(academicNotes([{ 2.9: 40 }]));
+// console.log(academicNotes({}));
