@@ -1467,9 +1467,14 @@ function academicNotes(objectNotes) {
 // console.log(academicNotes([{ 2.9: 40 }]));
 // console.log(academicNotes({}));
 function addNumbers(inputString) {
-  var array = inputString.match(/\d+/g);
-  var total = 0;
-  return array ? array.reduce((a, b) => parseInt(a) + parseInt(b), total) : 0;
+  // var array = inputString.match(/\d+/g);
+  return inputString.match(/\d+/g) ? inputString.match(/\d+/g).reduce((a, b) => parseInt(a) + parseInt(b)) : 0;
 } 
 console.log(addNumbers("1 banana + 1 pineapple + 3 oranges"));    
 console.log(addNumbers("banana, pineapple, oranges")); 
+
+
+var array3 = [1, 2, 3, 4];
+console.log(array3.reduce((a, b) => a + b));
+
+console.log("12inputString11".match(/\d+/g));
