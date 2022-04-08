@@ -1470,10 +1470,104 @@ function addNumbers(inputString) {
   var array = inputString.match(/\d+/g);
   return array ? array.reduce((a, b) => parseInt(a) + parseInt(b)) : 0;
 } 
-console.log(addNumbers("1 banana + 1 pineapple + 3 oranges"));    
-console.log(addNumbers("banana, pineapple, oranges")); 
+// console.log(addNumbers("1 banana + 1 pineapple + 3 oranges"));    
+// console.log(addNumbers("banana, pineapple, oranges")); 
+// console.log(addNumbers("101banana, pineapple, oranges")); 
 
+// var array3 = [1, 2, 3, 4];
+// console.log(array3.reduce((a, b) => a + b));
 
-var array3 = [1, 2, 3, 4];
-console.log(array3.reduce((a, b) => a + b));
+// function longestWordLength( str ) {
+//   const words = str.split( /\W+/g );
+//   console.log(words);
+//   let longestLength = 0;
+//   for ( const word of words ) {
+//     longestLength = Math.max( longestLength, word.length );
+//   }
+//   return longestLength;
+// }
+// console.log(longestWordLength("Good Shabbos to all"));
+
+function twoByTwos(matrix) {
+  var arrays = [];
+  var m = 0;
+  var mai = 0;
+  while (matrix.length > 1 && matrix[m].length > 1 && m < matrix.length - 1) {
+    var nindex = mai;
+    var mindex = m;
+    while (nindex < matrix[mindex].length - 1) {
+      
+      var array = [];
+      
+      while (mindex < m + 2) {
+        
+        while (nindex < mai + 2) {
+          // console.log(matrix[mindex][nindex]);
+          array.push(matrix[mindex][nindex]);
+          nindex++;
+        }
+        mindex++;
+        nindex = mai;
+      }
+      // console.log(array);
+      if (arrays.length > 0) {
+        var num = 0;
+        for (var c = 0; c < arrays.length; c++) {
+          var d = 0;
+          while (d < arrays[c].length) {
+            
+            if (array[d] === arrays[c][d]) {
+              d++;
+            } else {
+              num++;
+              break;
+            }
+            
+          }
+          if (num === arrays.length) {
+            arrays.push(array);
+          }
+        }
+        
+      } else {
+        arrays.push(array);
+      }
+      
+      nindex++;
+      mai++;
+      mindex = mindex - 2;
+    }
+    mai = 0;
+    m++;
+  }
+
+  return arrays.length;
+}
+console.log(twoByTwos([
+  [1, 2, 1],
+  [2, 2, 2],
+  [2, 2, 2],
+  [1, 2, 3],
+  [2, 2, 1]
+]));
+console.log(twoByTwos([
+  [1],
+  [2],
+  [2],
+  [1],
+  [2]
+]));
+console.log(twoByTwos([
+  [1, 7, 9, 0]
+]));
+console.log(twoByTwos([
+  [2,5,3,4,3,1,3,2], 
+  [4,5,4,1,2,4,1,3], 
+  [1,1,2,1,4,1,1,5], 
+  [1,3,4,2,3,4,2,4], 
+  [1,5,5,2,1,3,1,1], 
+  [1,2,3,3,5,1,2,4], 
+  [3,1,4,4,4,1,5,5], 
+  [5,1,3,3,1,5,3,5], 
+  [5,4,4,3,5,4,4,4]]));
 
