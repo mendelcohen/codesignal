@@ -1487,6 +1487,30 @@ function addNumbers(inputString) {
 //   return longestLength;
 // }
 // console.log(longestWordLength("Good Shabbos to all"));
+function filterDuplicates(arrays, array) {
+  if (arrays.length > 0) {
+    var num = 0;
+    for (var c = 0; c < arrays.length; c++) {
+      var d = 0;
+      while (d < arrays[c].length) {
+        
+        if (array[d] === arrays[c][d]) {
+          d++;
+        } else {
+          num++;
+          break;
+        }
+        
+      }
+      if (num === arrays.length) {
+        arrays.push(array);
+      }
+    }
+    
+  } else {
+    arrays.push(array);
+  }
+}
 
 function twoByTwos(matrix) {
   var arrays = [];
@@ -1510,28 +1534,7 @@ function twoByTwos(matrix) {
         nindex = mai;
       }
       // console.log(array);
-      if (arrays.length > 0) {
-        var num = 0;
-        for (var c = 0; c < arrays.length; c++) {
-          var d = 0;
-          while (d < arrays[c].length) {
-            
-            if (array[d] === arrays[c][d]) {
-              d++;
-            } else {
-              num++;
-              break;
-            }
-            
-          }
-          if (num === arrays.length) {
-            arrays.push(array);
-          }
-        }
-        
-      } else {
-        arrays.push(array);
-      }
+      filterDuplicates(arrays, array);
       
       nindex++;
       mai++;
